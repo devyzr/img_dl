@@ -2,7 +2,7 @@ import requests
 import shutil
 
 def save_image(link):
-    filename = link.split('/')[1:]
+    filename = link.split('/')[-1:][0]
     r = requests.get(link, stream=True)
     if r.status_code == 200:
         with open(filename, 'wb') as f:
